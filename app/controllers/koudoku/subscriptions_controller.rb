@@ -5,6 +5,7 @@ module Koudoku
     before_filter :load_subscription, only: [:show, :cancel, :edit, :update]
     before_filter :load_plans, only: [:index, :edit]
     skip_after_action :verify_policy_scoped, only: [:index, :new, :create, :show, :edit]
+    skip_before_action :verify_authorized
 
     def load_plans
       @plans = ::Plan.order(:display_order)
