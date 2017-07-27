@@ -121,6 +121,7 @@ module Koudoku
       
       if @subscription.save
         flash[:notice] = after_new_subscription_message
+        current_user.subscription_id = @subscription.id
         redirect_to after_new_subscription_path 
       else
         flash[:error] = I18n.t('koudoku.failure.problem_processing_transaction')
