@@ -117,11 +117,11 @@ module Koudoku
     def create
       @subscription = ::Subscription.new(subscription_params)
       @subscription.subscription_owner = @owner
-      @owner.subscription_id = @subscription.id
-      raise
       @subscription.coupon_code = session[:koudoku_coupon_code]
       
       if @subscription.save
+        @owner.subscription_id = @subscription.id
+        raise
         flash[:notice] = after_new_subscription_message
         redirect_to after_new_subscription_path 
       else
