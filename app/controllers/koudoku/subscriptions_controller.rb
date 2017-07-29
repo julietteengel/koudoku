@@ -118,6 +118,7 @@ module Koudoku
       @subscription = ::Subscription.new(subscription_params)
       @subscription.subscription_owner = @owner
       @owner.subscription_id = @subscription.id
+      raise
       @subscription.coupon_code = session[:koudoku_coupon_code]
       
       if @subscription.save
