@@ -121,7 +121,6 @@ module Koudoku
       
       if @subscription.save
         @owner.subscription_id = @subscription.id
-        raise
         flash[:notice] = after_new_subscription_message
         redirect_to after_new_subscription_path 
       else
@@ -145,6 +144,7 @@ module Koudoku
 
     def update
       if @subscription.update_attributes(subscription_params)
+        @owner.subscription_id = @subscription.id
         flash[:notice] = I18n.t('koudoku.confirmations.subscription_updated')
         redirect_to owner_subscription_path(@owner, @subscription)
       else
