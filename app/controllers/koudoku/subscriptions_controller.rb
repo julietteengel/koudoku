@@ -144,7 +144,7 @@ module Koudoku
 
     def update
       if @subscription.update_attributes(subscription_params)
-        @owner.subscription_id = @subscription.id
+        current_user.subscription_id = @subscription.id
         flash[:notice] = I18n.t('koudoku.confirmations.subscription_updated')
         redirect_to owner_subscription_path(@owner, @subscription)
       else
