@@ -3,5 +3,4 @@
 <% else %>
   <h1>Abonnements disponibles:</h1>
   <%= render 'pricing_table' %>
-  <p><%= link_to 'Annuler votre abonnement', koudoku.cancel_owner_subscription_path(@owner, @subscription), method: :post %></p>
 <% end %>
