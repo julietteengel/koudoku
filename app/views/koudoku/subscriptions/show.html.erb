@@ -4,7 +4,8 @@
       <h2 class="text-center spaced-bottom spaced-top"><%= t('koudoku.subscriptions.subscribed') %></h2>
       <p><%= t('koudoku.subscriptions.subscribed_to_plan', :plan => @subscription.plan.name) %></p>
       <%= link_to t('koudoku.subscriptions.choose_other_plan'), edit_owner_subscription_path(@owner, @subscription), class: 'btn' %>
-      <%= link_to t('koudoku.cancel_your_subscription'), koudoku.cancel_owner_subscription_path(@owner, @subscription), method: :post, class: 'btn' %></p>
+      <br>
+      <%= link_to "Résilier l'abonnement", koudoku.cancel_owner_subscription_path(@owner, @subscription), method: :post, class: 'btn' %></p>
     <% else %>
       <h2><%= t('koudoku.subscriptions.no_subscription') %></h2>
       <p><%= t('koudoku.subscriptions.not_subscribed_to_plan') %></p>
