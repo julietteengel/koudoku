@@ -49,6 +49,9 @@
 </script>
 <% end %>
 
+
+<div class="container padded">
+
 <%= form_for @subscription, url: url, html: {id: 'payment-form', class: 'form-horizontal'} do |f| %>
 
   <fieldset>
@@ -95,4 +98,6 @@
   </div>
 
 <% end %>
+  
+</div>
 
